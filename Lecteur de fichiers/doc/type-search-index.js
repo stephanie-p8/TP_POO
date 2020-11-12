@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes","url":"allclasses-index.html"},{"p":"LectureSimple","l":"DiffFichiers"},{"p":"LectureSimple","l":"LecteurFichier"},{"p":"LectureSimple","l":"LecteurFichierReverse"},{"p":"LectureSimple","l":"LecteurPalindrome"},{"p":"LectureSimple","l":"Lecture"},{"p":"LectureSimple","l":"LectureTypesFichiers"},{"p":"LectureSimple","l":"Main"}]
