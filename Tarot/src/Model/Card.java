@@ -20,5 +20,9 @@ public class Card {
 	public String getCardName() {
 		return name;
 	}
+	
+	public String toString() {
+		return "My card is the " + this.number + "whose name is " + this.name; 
+	}
 
 }
