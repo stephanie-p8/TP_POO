@@ -22,6 +22,10 @@ public class Card {
 		return name;
 	}
 	
+	public String getDescription() {
+		return description;
+	}
+	
 	public String toString() {
 		return "My card is the " + this.number + " whose name is " + this.name + "\n (Description): " + this.description; 
 	}
