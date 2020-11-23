@@ -10,7 +10,15 @@ public class Deck {
 		this.deckOfCards = deckOfCards;
 	}
 	
-	public void removeCard(Card c) {
-		deckOfCards.remove(c);
+	public void removeCard(int number) {
+		deckOfCards.remove(number);
+	}
+	
+	public ArrayList<Card> getDeckOfCards() {
+		return deckOfCards;
+	}
+	
+	public String toString() {
+		return "My deck of cards: " + this.deckOfCards + "\n";
 	}
 }
