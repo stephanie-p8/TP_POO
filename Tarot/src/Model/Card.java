@@ -27,7 +27,7 @@ public class Card {
 	}
 	
 	public String toString() {
-		return "My card is the " + this.number + " whose name is " + this.name + "\n (Description): " + this.description; 
+		return "My card is the " + this.number + " whose name is " + this.name + "\n (Description): " + this.description + "\n"; 
 	}
 
 }
