@@ -2,8 +2,7 @@ package Tests;
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
-import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+
 
 import org.junit.jupiter.api.Test;
 
@@ -21,8 +20,18 @@ public class TestCard {
 	@Test
 	public void testAddDescription() {
 		c.addDescription("Commencement, potentiel, outil, un homme");
-		/*assertNotNull(c.getDescription());
-		assertEquals("Commencement, potentiel, outil, un homme",c.addDescription("Commencement, potentiel, outil, un homme"));*/
+		assertTrue(c.getDescription()!=null);
+		
+	}
+	
+	@Test
+	public void testGetCardNumber() {
+		assertEquals(1,c.getCardNumber());
+	}
+	
+	@Test
+	public void testGetCardName() {
+		assertEquals("Le Bateleur",c.getCardName());
 	}
 
 }
