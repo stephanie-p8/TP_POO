@@ -14,6 +14,15 @@ public class Deck {
 		deckOfCards.remove(number);
 	}
 	
+	public Card searchCard(Card c){
+        for(int indice=0;indice<deckOfCards.size();indice++){
+            if((deckOfCards.get(indice).getCardNumber()==c.getCardNumber()) && (deckOfCards.get(indice).getCardName()==c.getCardName())){
+                return c;
+            }
+        }
+		return null;
+    }
+	
 	public ArrayList<Card> getDeckOfCards() {
 		return deckOfCards;
 	}
