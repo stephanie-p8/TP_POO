@@ -1,6 +1,9 @@
 package Model;
 
+import java.io.File;
 import java.util.ArrayList;
+
+import javax.swing.ImageIcon;
 
 public class Main {
 	public static void main(String[]args) {
@@ -11,6 +14,7 @@ public class Main {
 		for(int i=0;i<Data.NB_MAJOR_MYSTERY;i++) {
 			myCards.add(new Card(i,Data.MAJOR_MYSTERY[i]));
 			myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
+			myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.IMAGES[i]));
 		}
 		
 		System.out.println(myDeck);
