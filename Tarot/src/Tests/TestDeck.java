@@ -38,6 +38,11 @@ class TestDeck {
 	}
 	
 	@Test
+	public void testSearchCard() {
+		assertTrue(d.searchCard((Card) testDeck.get(0))!=null);
+	}
+	
+	@Test
 	public void testGetDeckOfCards() {
 		assertEquals(testDeck,d.getDeckOfCards());
 	}
