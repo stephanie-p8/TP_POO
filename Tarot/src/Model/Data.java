@@ -1,5 +1,7 @@
 package Model;
 
+import java.io.File;
+
 public class Data {
 
 	//The major mysteries
@@ -18,4 +20,7 @@ public class Data {
 			"Passion, désir, argent, luxure.","Défi, sommet, rapidité, réussite rapide.","Amitiés, douceur, rêve, espoir, protection, lenteur.",
 			"Gestation, obscurité, imagination, famille, intériorité","Chaleur, harmonie, émotion, protection, argent.","Annonce, nouvelle, réussite, libération, rapidité.",
 			"Réussite totale, apothéose, finalité."};
+	
+	public static final File DIRECTORY = new File("images");
+	public static final String IMAGES [] = DIRECTORY.list();
 }
