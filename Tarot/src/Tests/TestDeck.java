@@ -39,8 +39,6 @@ class TestDeck {
 	
 	@Test
 	public void testSearchCard() {
-		testDeck.add(new Card(1,"Le Bateleur"));
-		testDeck.add(new Card(2,"La Papesse"));
 		assertTrue(d.searchCard((Card) testDeck.get(0))!=null);
 	}
 	
