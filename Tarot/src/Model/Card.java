@@ -38,6 +38,10 @@ public class Card {
 		return description;
 	}
 	
+	public ImageIcon getCardImage() {
+		return image;
+	}
+	
 	public void setCardNumber(int number){
         this.number=number;
     }
@@ -47,7 +51,7 @@ public class Card {
     }
 	
 	public String toString() {
-		return "My card is the " + this.number + " whose name is " + this.name + "\n (Description): " + this.description + "\n"; 
+		return "My card is the " + this.number + " whose name is " + this.name + "\n (Description): " + this.description + "\n" + this.image; 
 	}
 
 }
