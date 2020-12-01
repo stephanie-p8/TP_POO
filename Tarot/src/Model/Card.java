@@ -1,8 +1,10 @@
 package Model;
 
+import java.io.Serializable;
+
 import javax.swing.ImageIcon;
 
-public class Card {
+public class Card implements Serializable {
 	private int number;
 	private String name;
 	private String description;
