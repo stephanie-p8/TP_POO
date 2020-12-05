@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import com.google.gson.*;
 
+import View.MyFrame;
+
 public class Main {
 	public static void main(String[]args) {
 		try {
@@ -88,5 +90,7 @@ public class Main {
 		myCards.get(9).updateCard(3, "La Nature");
 		System.out.println(myCards.get(9));*/
 		
+			
+		new MyFrame("Tarot");
 	}
 }
