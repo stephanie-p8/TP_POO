@@ -23,4 +23,7 @@ public class Data {
 	
 	public static final File DIRECTORY = new File("images");
 	public static final String IMAGES [] = DIRECTORY.list();
+	
+	public static final String MENU[] = {"Cartes","Paquet","Gestion application","Quitter"};
+	public static final String BUTTONS_DECK[]={"<<" ,"<",">",">>"};
 }
