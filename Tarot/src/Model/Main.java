@@ -2,11 +2,13 @@ package Model;
 
 import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import com.google.gson.*;
 
 public class Main {
 	public static void main(String[]args) {
@@ -24,21 +26,21 @@ public class Main {
 				System.out.println("Création de: " + c + "\n");
 			}
 			
-			// ouverture d'un flux de sortie vers le fichier "personne.serial"
+			//opening an output stream to the file "personne.serial".
 	        FileOutputStream fos = new FileOutputStream("card.serial");
 	
-	        // création d'un "flux objet" avec le flux fichier
+	        // creation of an "object flow" with the file flow
 	        ObjectOutputStream oos= new ObjectOutputStream(fos);
 	
 	        try {
-	            // sérialisation : écriture de l'objet dans le flux de sortie
+	            // serialization: writing the object to the output stream
 	            oos.writeObject(c); 
-	            // on vide le tampon
+	            // the buffer is emptied
 	            oos.flush();
 	            System.out.println(c + " a ete serialise");
 	        } 
 	            finally {
-	            //fermeture des flux
+	            //flow closure
 	                try {
 	                    oos.close();
 	                } finally {
@@ -49,6 +51,27 @@ public class Main {
 		catch(IOException ioe) {
             ioe.printStackTrace();
         }
+		
+		/*Gson gson = new Gson();
+		
+		ArrayList<Card>myCards = new ArrayList<Card>();
+		Deck myDeck = new Deck(myCards);
+		Card c = null;
+		
+		for(int i=0;i<Data.NB_MAJOR_MYSTERY;i++) {
+			c = new Card(i,Data.MAJOR_MYSTERY[i]);
+			myCards.add(c);
+			myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
+			myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.IMAGES[i]));
+			
+		}
+
+        
+        try (FileWriter writer = new FileWriter("card.json")) {
+            gson.toJson(c, writer);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }*/
 		
 		/*
 		System.out.println(myDeck);
