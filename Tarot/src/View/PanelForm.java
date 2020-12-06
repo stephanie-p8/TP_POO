@@ -30,7 +30,7 @@ public class PanelForm extends JPanel {
 		setLayout(new GridBagLayout());
 		this.d = d;
 		GridBagConstraints constraint = new GridBagConstraints ();
-		constraint.fill = GridBagConstraints.BOTH; //alignement
+		constraint.fill = GridBagConstraints.BOTH;
 		constraint.insets = new Insets (0,0,20,10);
 		
 				
