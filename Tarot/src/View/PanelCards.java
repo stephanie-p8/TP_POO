@@ -15,6 +15,7 @@ public class PanelCards extends JPanel implements ActionListener {
 	PanelDeck deck;
 	PanelForm form;
 	PanelManagement pm;
+	PanelDisplayCard dc;
 	Deck d;
 	CardLayout cl = new  CardLayout ();
 	
@@ -33,6 +34,9 @@ public class PanelCards extends JPanel implements ActionListener {
 		pm = new PanelManagement();
 		this.add(pm,"m");
 		
+		dc = new PanelDisplayCard();
+		this.add(dc,"dc");
+		
 		labelWelcome.setFont(new Font("Serif",Font.BOLD,30));
 		labelWelcome.setForeground(Color.RED);
 		panelHome.setLayout(new BorderLayout(20,20));
@@ -47,7 +51,12 @@ public class PanelCards extends JPanel implements ActionListener {
 	
 	
 	public void actionPerformed(ActionEvent event) {
-		if (event.getActionCommand().equals(Data.CARD_ITEMS[1])){
+		
+		if (event.getActionCommand().equals(Data.CARD_ITEMS[0])){
+			cl.show(this, "dc");
+		}
+		
+		else if (event.getActionCommand().equals(Data.CARD_ITEMS[1])){
 			cl.show(this, "f");
 		}
 		
