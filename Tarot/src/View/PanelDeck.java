@@ -11,12 +11,10 @@ import java.io.File;
 
 public class PanelDeck extends JPanel implements ActionListener {
 	
-	/*Contenu du panelSud*/
 	JPanel southPanel = new JPanel();
 	JLabel labSouth = new JLabel(Data.IMAGES[0]);
 
 	
-	/*Contenu du PanelCentre*/
 	CardLayout layout = new CardLayout();
 	JPanel centerPanel = new JPanel();
 	private int imagesIndex =0;
@@ -52,7 +50,7 @@ public class PanelDeck extends JPanel implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent parEvt){
-		if (parEvt.getActionCommand().equals(Data.BUTTONS_DECK[0])){ //recup�re le string associer au bouton et le compare au titre du bouton (mieux que getSource())
+		if (parEvt.getActionCommand().equals(Data.BUTTONS_DECK[0])){ 
 			layout.first(centerPanel);
 			imagesIndex = 0;
 			labSouth.setText(Data.IMAGES[imagesIndex]);
