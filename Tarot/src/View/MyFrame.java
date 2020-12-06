@@ -7,6 +7,7 @@ import Model.Data;
 import java.awt.*;
 
 public class MyFrame extends JFrame {
+	
 	private JMenuBar menuBar=new JMenuBar();
     JMenu menuCards= new JMenu(Data.MENU[0]);
     JMenu menuDeck= new JMenu(Data.MENU[1]);
