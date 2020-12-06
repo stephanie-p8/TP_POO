@@ -54,6 +54,12 @@ public class PanelManagement extends JPanel implements ActionListener{
 			               "Choose background color", Color.white);
 			            if(backgroundColor != null){
 			               this.setBackground(backgroundColor);  
+			               labelExp.setBackground(backgroundColor);
+			               checkBoxColor.setBackground(backgroundColor);
+			               checkBoxLanguage.setBackground(backgroundColor);
+			               //getContentPane().setBackground(backgroundColor);
+			               
+			               
 				}
 			}
 			
