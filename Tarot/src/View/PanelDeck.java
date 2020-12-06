@@ -13,7 +13,7 @@ public class PanelDeck extends JPanel implements ActionListener {
 	
 	/*Contenu du panelSud*/
 	JPanel southPanel = new JPanel();
-	JLabel labSud = new JLabel(Data.IMAGES[0]);
+	JLabel labSouth = new JLabel(Data.IMAGES[0]);
 
 	
 	/*Contenu du PanelCentre*/
@@ -33,20 +33,18 @@ public class PanelDeck extends JPanel implements ActionListener {
 			southPanel.add(bouton[i],Data.BUTTONS_DECK[i]);	
 		}
 		
-		southPanel.add(labSud);//ajout de l'etiquette
+		southPanel.add(labSouth);
 		
-		/*instantiation des etiquettes et ajout dans le panelCentre*/
 		JLabel labels [] = new JLabel [Data.IMAGES.length];
-		centerPanel.setLayout(layout); //attribution d'un CardLayout a la zone centre
+		centerPanel.setLayout(layout); 
 		for (int i=0; i<Data.IMAGES.length;i++){
-			//labels[i] = new JLabel (Data.NOM_IMAGES[i],JLabel.CENTER);
 			labels[i] = new JLabel(new ImageIcon("images" + File.separator + Data.IMAGES[i]));
 			centerPanel.add(labels[i],Data.IMAGES[i]);
 		}
 		
-		layout.show(centerPanel, Data.IMAGES[3]);
-		imagesIndex = 3;
-		labSud.setText(Data.IMAGES[3]);
+		layout.show(centerPanel, Data.IMAGES[0]);
+		imagesIndex = 0;
+		labSouth.setText(Data.IMAGES[0]);
 		
 		
 		add(southPanel,BorderLayout.SOUTH);
@@ -57,7 +55,7 @@ public class PanelDeck extends JPanel implements ActionListener {
 		if (parEvt.getActionCommand().equals(Data.BUTTONS_DECK[0])){ //recup�re le string associer au bouton et le compare au titre du bouton (mieux que getSource())
 			layout.first(centerPanel);
 			imagesIndex = 0;
-			labSud.setText(Data.IMAGES[imagesIndex]);
+			labSouth.setText(Data.IMAGES[imagesIndex]);
 			
 		}
 		
@@ -66,7 +64,7 @@ public class PanelDeck extends JPanel implements ActionListener {
 			imagesIndex--;
 			if (imagesIndex < 0) 
 				imagesIndex = Data.IMAGES.length - 1; 
-			labSud.setText(Data.IMAGES[imagesIndex]);
+			labSouth.setText(Data.IMAGES[imagesIndex]);
 			
 		}
 		
@@ -75,13 +73,13 @@ public class PanelDeck extends JPanel implements ActionListener {
 			imagesIndex++;
 			if (imagesIndex > Data.IMAGES.length - 1) 
 				imagesIndex = 0; 
-			labSud.setText(Data.IMAGES[imagesIndex]);
+			labSouth.setText(Data.IMAGES[imagesIndex]);
 		}
 		
 		else if (parEvt.getActionCommand().equals(Data.BUTTONS_DECK[3])){
 			layout.last(centerPanel);
 			imagesIndex = 21;
-			labSud.setText(Data.IMAGES[imagesIndex]); //pour modifier l'etiquette
+			labSouth.setText(Data.IMAGES[imagesIndex]); //pour modifier l'etiquette
 			
 			
 		}
