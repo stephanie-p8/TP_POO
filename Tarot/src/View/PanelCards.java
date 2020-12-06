@@ -43,7 +43,7 @@ public class PanelCards extends JPanel implements ActionListener {
 	
 	
 	public void actionPerformed(ActionEvent event) {
-		if (event.getActionCommand().equals("Créer nouvelle carte")){
+		if (event.getActionCommand().equals(Data.CARD_ITEMS[1])){
 			cl.show(this, "f");
 		}
 		
