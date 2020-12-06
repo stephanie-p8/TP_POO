@@ -4,7 +4,7 @@ import java.io.File;
 
 public class Data {
 
-	//The major mysteries
+	/*The major mysteries*/
 	public static final String [] MAJOR_MYSTERY= {"Le Mat","Le Bateleur","La Papesse","L’Impératrice","L’Empereur"
 			,"Le Pape","L’Amoureux","Le Chariot","La Justice","L’Hermite","La Roue de Fortune","La Force",
 			"Le Pendu","La carte sans nom","La Tempérance","Le Diable","La Maison Dieu","L’étoile","La Lune",
@@ -21,9 +21,15 @@ public class Data {
 			"Gestation, obscurité, imagination, famille, intériorité","Chaleur, harmonie, émotion, protection, argent.","Annonce, nouvelle, réussite, libération, rapidité.",
 			"Réussite totale, apothéose, finalité."};
 	
+	/*Images*/
 	public static final File DIRECTORY = new File("images");
 	public static final String IMAGES [] = DIRECTORY.list();
 	
+	/*Menu*/
 	public static final String MENU[] = {"Cartes","Paquet","Gestion application","Quitter"};
+	public static final String CARD_ITEMS[]= {"Afficher carte","Créer nouvelle carte","Modifier carte"};
+	public static final String DECK_ITEMS[]= {"Afficher paquet","Rechercher carte","Supprimer carte"};
+	
+	/*Buttons*/
 	public static final String BUTTONS_DECK[]={"<<" ,"<",">",">>"};
 }
