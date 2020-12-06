@@ -17,6 +17,8 @@ public class PanelCards extends JPanel implements ActionListener {
 	Deck d;
 	CardLayout cl = new  CardLayout ();
 	
+	JPanel panelHome = new JPanel();
+	JLabel labelWelcome = new JLabel("Bienvenue au mystic tarot!",SwingConstants.CENTER);
 	
 	public PanelCards() {
 		setLayout(cl);
@@ -27,8 +29,18 @@ public class PanelCards extends JPanel implements ActionListener {
 		deck = new PanelDeck();
 		this.add(deck,"d");
 		
+		labelWelcome.setFont(new Font("Serif",Font.BOLD,30));
+		labelWelcome.setForeground(Color.RED);
+		panelHome.setLayout(new BorderLayout(20,20));
+		
+		panelHome.add(labelWelcome,BorderLayout.CENTER);
+		
+		this.add(panelHome,"h");
+		cl.show(this,"h");
 		
 	}
+	
+	
 	
 	public void actionPerformed(ActionEvent event) {
 		if (event.getActionCommand().equals("Créer nouvelle carte")){
