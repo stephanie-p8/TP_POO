@@ -14,13 +14,13 @@ public class MyFrame extends JFrame {
     JMenu menuManagement= new JMenu(Data.MENU[2]);
     JMenu menuExit= new JMenu(Data.MENU[3]);
 
-    JMenuItem itemCard1= new JMenuItem("Afficher carte");
-    JMenuItem itemCard2= new JMenuItem("Créer nouvelle carte");
-    JMenuItem itemCard3= new JMenuItem("Modifier carte");
+    JMenuItem itemCard1= new JMenuItem(Data.CARD_ITEMS[0]);
+    JMenuItem itemCard2= new JMenuItem(Data.CARD_ITEMS[1]);
+    JMenuItem itemCard3= new JMenuItem(Data.CARD_ITEMS[2]);
 
-    JMenuItem itemDeck1= new JMenuItem("Afficher paquet");
-    JMenuItem itemDeck2= new JMenuItem("Rechercher carte");
-    JMenuItem itemDeck3= new JMenuItem("Supprimer carte");
+    JMenuItem itemDeck1= new JMenuItem(Data.DECK_ITEMS[0]);
+    JMenuItem itemDeck2= new JMenuItem(Data.DECK_ITEMS[1]);
+    JMenuItem itemDeck3= new JMenuItem(Data.DECK_ITEMS[2]);
 	
 	public MyFrame(String parTitre){ 
 		   super (parTitre);
