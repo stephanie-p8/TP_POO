@@ -52,7 +52,7 @@ public class PanelDeck extends JPanel implements ActionListener {
 	}
 	
 	public void actionPerformed(ActionEvent parEvt){
-		if (parEvt.getActionCommand().equals(Data.BUTTONS_DECK[0])){ //recup�re le string associer au bouton et le compare au titre du bouton (mieux que getSource())
+		if (parEvt.getActionCommand().equals(Data.BUTTONS_DECK[0])){
 			layout.first(centerPanel);
 			imagesIndex = 0;
 			labSouth.setText(Data.IMAGES[imagesIndex]);
