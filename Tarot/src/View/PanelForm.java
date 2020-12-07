@@ -7,14 +7,18 @@ import javax.swing.filechooser.FileSystemView;
 import Model.Deck;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.File;
 
-public class PanelForm extends JPanel {
+public class PanelForm extends JPanel implements ActionListener{
 	JButton btn = new JButton("+");
 	JLabel labelNumber = new JLabel ("Numero carte");
 	JLabel labelName = new JLabel ("Nom carte");
 	JLabel labelDescription = new JLabel ("Description");
 	JLabel labelImage = new JLabel ("Image");
+	JButton buttonImage = new JButton("Choisissez votre image");
+	JLabel labelImageName = new JLabel("");
 	
 	
 	JTextField fieldNumber = new JTextField (10);
@@ -80,25 +84,34 @@ public class PanelForm extends JPanel {
 		labelImage.setDisplayedMnemonic('I');
 		add (labelImage,constraint);
 		
+		constraint.gridx++;
+		constraint.gridwidth = 1;
+		labelImage.setLabelFor(buttonImage);
+		buttonImage.addActionListener(this);
+		buttonImage.setActionCommand("Choisissez votre image");
+		add(buttonImage,constraint);
 		
-		/*FileSystemView view = FileSystemView.getFileSystemView();
-		FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG Images", "jpg", "png");
-		chooseImage.setFileFilter(filter);
-		int returnValue = chooseImage.showOpenDialog(null);
-        if (returnValue == JFileChooser.APPROVE_OPTION) {
-          selectedFile = chooseImage.getSelectedFile();
+		constraint.gridx++;
+		constraint.gridwidth = 1;
+		add(labelImageName,constraint);
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent event) {
+		// TODO Auto-generated method stub
+		if(event.getActionCommand().equals("Choisissez votre image")) {
+			//FileSystemView view = FileSystemView.getFileSystemView();
+			FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG Images", "jpg", "png");
+			chooseImage.setFileFilter(filter);
+			int returnValue = chooseImage.showOpenDialog(null);
+	        if (returnValue == JFileChooser.APPROVE_OPTION) {
+	          selectedFile = chooseImage.getSelectedFile();
+	          labelImageName.setText(selectedFile.getName());
+			}
+	        
+	        
 		}
-        
-        constraint.gridx ++;
-		constraint.gridwidth = 5;
-		constraint.gridheight =5;
-		labelImage.setLabelFor(chooseImage);
-		add (chooseImage,constraint);
 		
-		constraint.gridx ++;
-		constraint.gridwidth = 1;*/
-		//add (new JLabel(selectedFile.getName()),constraint);
-        
-        
 	}
 }
