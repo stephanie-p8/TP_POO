@@ -15,7 +15,7 @@ public class Deck {
 	}
 	
 	public void addCard(Card c) {
-		deckOfCards.add(c);
+		deckOfCards.add(c); 
 	}
 	
 	public Card searchCard(Card c){
