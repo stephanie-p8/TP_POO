@@ -39,7 +39,7 @@ public class PanelForm extends JPanel implements ActionListener{
 		
 				
 		//button
-		constraint.gridx = constraint.gridy = 0;;
+		constraint.gridx = constraint.gridy = 0;
 		constraint.gridwidth = 1;
 		add (btn,constraint);
 		btn.setActionCommand("+"); 
