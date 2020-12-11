@@ -14,6 +14,10 @@ public class Deck {
 		deckOfCards.remove(number);
 	}
 	
+	public void addCard(Card c) {
+		deckOfCards.add(c);
+	}
+	
 	public Card searchCard(Card c){
         for(int indice=0;indice<deckOfCards.size();indice++){
             if((deckOfCards.get(indice).getCardNumber()==c.getCardNumber()) && (deckOfCards.get(indice).getCardName()==c.getCardName())){
