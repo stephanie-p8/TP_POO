@@ -3,6 +3,7 @@
  */
 package Tests;
 
+import static org.junit.Assert.assertTrue;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
@@ -35,6 +36,12 @@ class TestDeck {
 	void testRemoveCard() {
 		d.removeCard(3);
 		assertEquals(21,d.getDeckOfCards().size());
+	}
+	
+	@Test
+	void testAddCard() {
+		d.addCard(new Card(23,"test"));
+		assertEquals(23,d.getDeckOfCards().size());
 	}
 	
 	@Test
