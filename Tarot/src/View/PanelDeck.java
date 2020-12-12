@@ -51,13 +51,14 @@ public class PanelDeck extends JPanel implements ActionListener {
 	
 	public void actionPerformed(ActionEvent parEvt){
 
-			/*layout.first(centerPanel);
+		if (parEvt.getActionCommand().equals(Data.BUTTONS_DECK[0])) {
+			layout.first(centerPanel);
 			imagesIndex = 0;
 			labSouth.setText(Data.IMAGES[imagesIndex]);
-			
-		}*/
+		}
 		
-		if (parEvt.getActionCommand().equals(Data.BUTTONS_DECK[1])){
+		
+		else if (parEvt.getActionCommand().equals(Data.BUTTONS_DECK[1])){
 			layout.previous(centerPanel);
 			imagesIndex--;
 			if (imagesIndex < 0) 
