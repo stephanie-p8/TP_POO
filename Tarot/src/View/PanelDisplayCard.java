@@ -7,6 +7,7 @@ import Model.Data;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
 
 public class PanelDisplayCard extends JPanel implements ActionListener {
 	
@@ -17,6 +18,8 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 	JPanel panelNorth = new JPanel();
 	JPanel panelCenter = new JPanel();
 	JPanel panelSouth = new JPanel();
+	
+	CardLayout layout = new CardLayout();
 	
 	public PanelDisplayCard() {
 		setLayout(new BorderLayout(20,20));
@@ -31,6 +34,16 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 		btnDisplay.setActionCommand("Afficher");
 		panelNorth.add(btnDisplay);
 		
+		panelCenter.setLayout(layout);
+		
+		JLabel labels [] = new JLabel [Data.IMAGES.length];
+		for (int i=0; i<Data.IMAGES.length;i++){
+			labels[i] = new JLabel(new ImageIcon("images" + File.separator + Data.IMAGES[i]));
+			panelCenter.add(labels[i],Data.IMAGES[i]);
+		}
+		
+		layout.show(panelCenter, Data.IMAGES[0]);
+		
 		
 		this.add(panelNorth,BorderLayout.NORTH);
 		this.add(panelCenter,BorderLayout.CENTER);
@@ -43,9 +56,8 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 		if(event.getActionCommand().equals("Afficher")) {
 			for(int j=0;j<Data.MAJOR_MYSTERY.length;j++) {
 				if(cards.getSelectedIndex()==j) {
-					JLabel label = new JLabel(new ImageIcon(Data.IMAGES[j]));
-					panelCenter.add(label);
-					//this.add(panelCenter,BorderLayout.CENTER);
+					layout.show(panelCenter, Data.IMAGES[j]);
+
 				}
 			}
 		}
