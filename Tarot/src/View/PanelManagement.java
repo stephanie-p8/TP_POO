@@ -22,7 +22,7 @@ public class PanelManagement extends JPanel implements ActionListener{
 		constraint.insets = new Insets (0,0,20,10);
 		
 		//label
-		constraint.gridx = constraint.gridy = 0;;
+		constraint.gridx = constraint.gridy = 0;
 		constraint.gridwidth = 1;
 		add(labelExp,constraint);
 		
@@ -64,12 +64,14 @@ public class PanelManagement extends JPanel implements ActionListener{
 			}
 			
 			else if(checkBoxLanguage.isSelected()){
+				JComboBox languagesList = new JComboBox();
 				String languages[] = {"Français","English"};
-				int choice = (int) JOptionPane.showInputDialog(
-                        null, "Choisissez une langue",
-                        "Changement de langue",
-                        JOptionPane.QUESTION_MESSAGE,
-                        null, languages, languages[0]);
+				
+				for(int i=0;i<languages.length;i++) {
+					languagesList.addItem(languages[i]);
+				}
+				
+				int choice = JOptionPane.showOptionDialog(null,new Object[] {"Choisissez la langue:",languagesList},"Supprimer carte",JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
 				
 				switch(choice){
 				case JOptionPane.CLOSED_OPTION:
