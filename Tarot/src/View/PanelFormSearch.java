@@ -2,6 +2,7 @@ package View;
 
 import javax.swing.*;
 
+import Controller.Controller;
 import Model.Data;
 import Model.Deck;
 
@@ -74,5 +75,9 @@ public class PanelFormSearch extends JPanel{
 	
 	public JTextField getFieldName() {
 		return fieldName;
+	}
+	
+	public void listenController(Controller c) {
+		btnSearch.addActionListener(c);
 	}
 }

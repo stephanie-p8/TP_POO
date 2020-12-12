@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
+import Controller.Controller;
 import Model.Data;
 import Model.Deck;
 
@@ -134,5 +135,10 @@ public class PanelForm extends JPanel implements ActionListener{
 	        
 		}
 		
+	}
+	
+	public void listenController(Controller c) {
+		btn.addActionListener(c);
+		buttonImage.addActionListener(c);
 	}
 }
