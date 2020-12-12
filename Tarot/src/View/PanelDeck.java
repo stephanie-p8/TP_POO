@@ -23,12 +23,12 @@ public class PanelDeck extends JPanel implements ActionListener {
 		setLayout (new BorderLayout (20,20));
 		
 		
-		JButton bouton[] = new JButton [Data.BUTTONS_DECK.length];
+		JButton buttons[] = new JButton [Data.BUTTONS_DECK.length];
 		for (int i=0; i<Data.BUTTONS_DECK.length;i++){
-			bouton[i] = new JButton (Data.BUTTONS_DECK[i]);
-			bouton[i].addActionListener(this);
-			bouton[i].setActionCommand(Data.BUTTONS_DECK[i]);
-			southPanel.add(bouton[i],Data.BUTTONS_DECK[i]);	
+			buttons[i] = new JButton (Data.BUTTONS_DECK[i]);
+			buttons[i].addActionListener(this);
+			buttons[i].setActionCommand(Data.BUTTONS_DECK[i]);
+			southPanel.add(buttons[i],Data.BUTTONS_DECK[i]);	
 		}
 		
 		southPanel.add(labSouth);
