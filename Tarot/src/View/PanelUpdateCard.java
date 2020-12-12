@@ -17,7 +17,7 @@ public class PanelUpdateCard  extends JPanel{
 	JTextField fieldNumber = new JTextField (10);
 	JTextField fieldName = new JTextField (10);
 	
-	JButton btnUpdate = new JButton("Modifier");
+	JButton btnUpdate = new JButton(Data.FORM_BUTTONS[1]);
 	
 	Deck d;
 	
@@ -75,7 +75,7 @@ public class PanelUpdateCard  extends JPanel{
 		constraint.gridy ++;
 		constraint.gridx = 0;
 		//btnUpdate.addActionListener(this);
-		btnUpdate.setActionCommand("Modifier");
+		btnUpdate.setActionCommand(Data.FORM_BUTTONS[1]);
 		add(btnUpdate,constraint);
 		
 	}

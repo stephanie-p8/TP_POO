@@ -32,4 +32,6 @@ public class Data {
 	
 	/*Buttons*/
 	public static final String BUTTONS_DECK[]={"<<" ,"<",">",">>"};
+	public static final String BUTTON_DISPLAY  = "Afficher";
+	public static final String FORM_BUTTONS[]= {"Ajouter","Modifier","Rechercher"};
 }

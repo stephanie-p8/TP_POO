@@ -4,6 +4,7 @@ import javax.swing.*;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.filechooser.FileSystemView;
 
+import Model.Data;
 import Model.Deck;
 
 import java.awt.*;
@@ -12,13 +13,16 @@ import java.awt.event.ActionListener;
 import java.io.File;
 
 public class PanelForm extends JPanel implements ActionListener{
-	JButton btn = new JButton("+");
+	
 	JLabel labelNumber = new JLabel ("Numero carte");
 	JLabel labelName = new JLabel ("Nom carte");
 	JLabel labelDescription = new JLabel ("Description");
 	JLabel labelImage = new JLabel ("Image");
-	JButton buttonImage = new JButton("Choisissez votre image");
 	JLabel labelImageName = new JLabel("");
+	
+	JButton buttonImage = new JButton("Choisissez votre image");
+	JButton btn = new JButton(Data.FORM_BUTTONS[0]);
+	
 	
 	
 	JTextField fieldNumber = new JTextField (10);
@@ -38,15 +42,9 @@ public class PanelForm extends JPanel implements ActionListener{
 		constraint.insets = new Insets (0,0,20,10);
 		
 				
-		//button
+		//number
 		constraint.gridx = constraint.gridy = 0;
 		constraint.gridwidth = 1;
-		add (btn,constraint);
-		btn.setActionCommand("+"); 
-				
-		//number
-		constraint.gridy ++;
-		constraint.gridx = 0;
 		labelNumber.setDisplayedMnemonic('N');
 		add (labelNumber,constraint);
 				
@@ -94,6 +92,13 @@ public class PanelForm extends JPanel implements ActionListener{
 		constraint.gridx++;
 		constraint.gridwidth = 1;
 		add(labelImageName,constraint);
+		
+		//button
+		constraint.gridy +=5;
+		constraint.gridx = 0;
+		constraint.gridwidth = 1;
+		add (btn,constraint);
+		btn.setActionCommand(Data.FORM_BUTTONS[0]); 
 		
 	}
 	

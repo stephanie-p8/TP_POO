@@ -13,7 +13,7 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 	
 	JLabel labelCard = new JLabel("Choisissez la carte à afficher");
 	JComboBox cards = new JComboBox();
-	JButton btnDisplay = new JButton("Afficher");
+	JButton btnDisplay = new JButton(Data.BUTTON_DISPLAY);
 	
 	JPanel panelNorth = new JPanel();
 	JPanel panelCenter = new JPanel();
@@ -53,7 +53,7 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		// TODO Auto-generated method stub
-		if(event.getActionCommand().equals("Afficher")) {
+		if(event.getActionCommand().equals(Data.BUTTON_DISPLAY)) {
 			for(int j=0;j<Data.MAJOR_MYSTERY.length;j++) {
 				if(cards.getSelectedIndex()==j) {
 					layout.show(panelCenter, Data.IMAGES[j]);

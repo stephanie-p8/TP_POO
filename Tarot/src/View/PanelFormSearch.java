@@ -15,7 +15,7 @@ public class PanelFormSearch extends JPanel{
 	JTextField fieldNumber = new JTextField (10);
 	JTextField fieldName = new JTextField (10);
 	
-	JButton btnSearch = new JButton("Rechercher");
+	JButton btnSearch = new JButton(Data.FORM_BUTTONS[2]);
 	
 	Deck d;
 	
@@ -63,7 +63,7 @@ public class PanelFormSearch extends JPanel{
 		constraint.gridy ++;
 		constraint.gridx = 0;
 		//btnUpdate.addActionListener(this);
-		btnSearch.setActionCommand("Rechercher");
+		btnSearch.setActionCommand(Data.FORM_BUTTONS[2]);
 		add(btnSearch,constraint);
 	}
 	
