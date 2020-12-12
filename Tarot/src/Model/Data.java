@@ -22,7 +22,7 @@ public class Data {
 			"Réussite totale, apothéose, finalité."};
 	
 	/*Images*/
-	public static final File DIRECTORY = new File("images");
+	public static final File DIRECTORY = new File("images2");
 	public static final String IMAGES [] = DIRECTORY.list();
 	
 	/*Menu*/
