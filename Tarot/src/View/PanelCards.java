@@ -17,6 +17,7 @@ public class PanelCards extends JPanel implements ActionListener {
 	PanelManagement pm;
 	PanelDisplayCard dc;
 	PanelUpdateCard uc;
+	PanelSearch ps;
 	
 	Deck d;
 	CardLayout cl = new  CardLayout ();
@@ -41,6 +42,9 @@ public class PanelCards extends JPanel implements ActionListener {
 		
 		uc = new PanelUpdateCard(d);
 		this.add(uc,"uc");
+		
+		ps = new PanelSearch(d);
+		this.add(ps,"ps");
 		
 		labelWelcome.setFont(new Font("Serif",Font.BOLD,30));
 		labelWelcome.setForeground(Color.RED);
@@ -71,6 +75,33 @@ public class PanelCards extends JPanel implements ActionListener {
 		
 		else if(event.getActionCommand().equals(Data.DECK_ITEMS[0])) {
 			cl.show(this,"d");
+		}
+		
+		else if(event.getActionCommand().equals(Data.DECK_ITEMS[1])) {
+			cl.show(this,"ps");
+		}
+		
+		else if(event.getActionCommand().equals(Data.DECK_ITEMS[2])) {
+			JComboBox box = new JComboBox();
+			for(int i=0;i<Data.MAJOR_MYSTERY.length;i++) {
+				box.addItem(Data.MAJOR_MYSTERY[i]);
+			}
+			int choice = JOptionPane.showOptionDialog(null,new Object[] {"Choisissez la carte à supprimer:",box},"Supprimer carte",JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
+			
+			switch(choice){
+			case JOptionPane.CLOSED_OPTION:
+				break;
+			case JOptionPane.OK_OPTION:
+				for(int j=0;j<Data.MAJOR_MYSTERY.length;j++) {
+					if(box.getSelectedIndex()==j) {
+						d.removeCard(j);
+					}
+				}
+				
+				break;
+			case JOptionPane.CANCEL_OPTION:
+				break;	
+			}
 		}
 		
 
