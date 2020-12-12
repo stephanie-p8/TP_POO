@@ -22,6 +22,7 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 	CardLayout layout = new CardLayout();
 	
 	public PanelDisplayCard() {
+		
 		setLayout(new BorderLayout(20,20));
 		
 		for(int i=0;i<Data.MAJOR_MYSTERY.length;i++) {

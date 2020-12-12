@@ -24,6 +24,7 @@ public class PanelUpdateCard  extends JPanel{
 	
 
 	public PanelUpdateCard(Deck d) {
+		
 		setLayout(new GridBagLayout());
 		this.d = d;
 		

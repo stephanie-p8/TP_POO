@@ -1,6 +1,9 @@
 package View;
 
 import javax.swing.*;
+
+import Model.Data;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +15,7 @@ public class PanelManagement extends JPanel implements ActionListener{
 	JLabel labelExp = new JLabel("Paramétrer l'application, avec les options suivantes:");
 	JCheckBox checkBoxColor = new JCheckBox("Changer la couleur de l'arrière plan");
 	JCheckBox checkBoxLanguage = new JCheckBox("Changer la langue de l'application");
-	JButton button = new JButton("Appliquer");
+	JButton button = new JButton(Data.BUTTON_MANAGEMENT);
 	
 	public PanelManagement() {
 		
@@ -41,14 +44,14 @@ public class PanelManagement extends JPanel implements ActionListener{
 		constraint.gridx = 0;
 		constraint.gridwidth = 1;
 		button.addActionListener(this);
-		button.setActionCommand("Appliquer");
+		button.setActionCommand(Data.BUTTON_MANAGEMENT);
 		add(button,constraint);
 		
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent evt) {
-		if(evt.getActionCommand().equals("Appliquer")) {
+		if(evt.getActionCommand().equals(Data.BUTTON_MANAGEMENT)) {
 			if(checkBoxColor.isSelected()) {
 				Color backgroundColor = JColorChooser.showDialog(this,
 			               "Choose background color", Color.white);

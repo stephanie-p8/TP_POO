@@ -20,6 +20,7 @@ public class PanelFormSearch extends JPanel{
 	Deck d;
 	
 	public PanelFormSearch(Deck d) {
+		
 		setLayout(new GridBagLayout());
 		this.d=d;
 		

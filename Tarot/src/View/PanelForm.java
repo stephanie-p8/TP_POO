@@ -35,6 +35,7 @@ public class PanelForm extends JPanel implements ActionListener{
 	Deck d;
 	
 	public PanelForm(Deck d) {
+		
 		setLayout(new GridBagLayout());
 		this.d = d;
 		GridBagConstraints constraint = new GridBagConstraints ();
