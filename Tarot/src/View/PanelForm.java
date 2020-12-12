@@ -96,12 +96,27 @@ public class PanelForm extends JPanel implements ActionListener{
 		add(labelImageName,constraint);
 		
 	}
+	
+	public JTextField getTextFieldNumber() {
+		return fieldNumber;
+	}
+	
+	public JTextField getTextFieldName() {
+		return fieldName;
+	}
+	
+	public JTextArea getTextAreaDesc() {
+		return areaDesc;
+	}
+	
+	public JFileChooser getFileChooser() {
+		return chooseImage;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		// TODO Auto-generated method stub
 		if(event.getActionCommand().equals("Choisissez votre image")) {
-			//FileSystemView view = FileSystemView.getFileSystemView();
 			FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG Images", "jpg", "png");
 			chooseImage.setFileFilter(filter);
 			int returnValue = chooseImage.showOpenDialog(null);
