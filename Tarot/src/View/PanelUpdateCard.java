@@ -79,5 +79,13 @@ public class PanelUpdateCard  extends JPanel{
 		add(btnUpdate,constraint);
 		
 	}
+	
+	public JTextField getFieldNumber() {
+		return fieldNumber;
+	}
+	
+	public JTextField getFieldName() {
+		return fieldName;
+	}
 
 }

@@ -66,4 +66,12 @@ public class PanelFormSearch extends JPanel{
 		btnSearch.setActionCommand("Rechercher");
 		add(btnSearch,constraint);
 	}
+	
+	public JTextField getFieldNumber() {
+		return fieldNumber;
+	}
+	
+	public JTextField getFieldName() {
+		return fieldName;
+	}
 }
