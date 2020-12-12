@@ -2,12 +2,17 @@ package View;
 
 import javax.swing.*;
 
+import Controller.Controller;
+import Model.Card;
 import Model.Data;
 import Model.Deck;
+import Model.ReadWrite;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+import java.util.ArrayList;
 
 
 public class PanelCards extends JPanel implements ActionListener {
@@ -28,6 +33,26 @@ public class PanelCards extends JPanel implements ActionListener {
 	public PanelCards() {
 		setLayout(cl);
 		
+		File f = new File("card.serial");
+		if(f.length()==0) {
+			ArrayList<Card>myCards = new ArrayList<Card>();
+			Deck myDeck = new Deck(myCards);
+			Card c = null;
+			
+			for(int i=0;i<Data.NB_MAJOR_MYSTERY;i++) {
+				c = new Card(i,Data.MAJOR_MYSTERY[i]);
+				myCards.add(c);
+				myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
+				myCards.get(i).addImage(new ImageIcon("images2" + File.separator + Data.IMAGES[i]));
+			}
+			
+			ReadWrite.write(f, myDeck);
+		}
+		
+		else {
+			d = (Deck) ReadWrite.read(f);
+		}
+		
 		form = new PanelForm(d);
 		this.add(form,"f");
 		
@@ -45,6 +70,9 @@ public class PanelCards extends JPanel implements ActionListener {
 		
 		ps = new PanelSearch(d);
 		this.add(ps,"ps");
+		
+		
+		Controller controller = new Controller(d,dc,form,uc,new PanelFormSearch(d));
 		
 		labelWelcome.setFont(new Font("Serif",Font.BOLD,30));
 		labelWelcome.setForeground(Color.RED);
