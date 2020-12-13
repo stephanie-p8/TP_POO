@@ -53,7 +53,7 @@ public class Card implements Serializable {
     }
 	
 	public String toString() {
-		return "My card is the " + this.number + " whose name is " + this.name + "\n (Description): " + this.description + "\n" + this.image; 
+		return "My card is the " + this.number + " whose name is " + this.name + "\n (Description): " + this.description + "\n"; 
 	}
 
 }
