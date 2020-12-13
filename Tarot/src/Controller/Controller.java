@@ -18,7 +18,7 @@ public class Controller implements ActionListener{
 	PanelUpdateCard panelUpdate;
 	PanelSearch panelSearch = new PanelSearch(d);
 	PanelFormSearch panelFormSearch;
-	File file;
+	File file = new File("card.serial");
 	
 	public Controller(Deck d,PanelDisplayCard panelDisplay,PanelForm form,PanelUpdateCard panelUpdate,PanelFormSearch panelFormSearch) {
 		this.d=d;
@@ -49,6 +49,11 @@ public class Controller implements ActionListener{
 			
 			d.addCard(c);
 			ReadWrite.write(file, c);
+			
+			form.getTextFieldNumber().setText(new String());
+			form.getTextFieldName().setText(new String());
+			form.getTextAreaDesc().setText(new String());
+			form.getTextFieldNumber().requestFocus();
 		}
 		
 		else if(evt.getActionCommand().equals("Choisissez votre image")) {
@@ -71,6 +76,10 @@ public class Controller implements ActionListener{
 			Card c = new Card(number,name);
 			c.updateCard(number, name);
 			
+			form.getTextFieldNumber().setText(new String());
+			form.getTextFieldName().setText(new String());
+			form.getTextFieldNumber().requestFocus();
+			
 		}
 		
 		else if(evt.getActionCommand().equals(Data.FORM_BUTTONS[2])) {
@@ -81,6 +90,10 @@ public class Controller implements ActionListener{
 			d.searchCard(c);
 			
 			panelSearch.getSearchLayout().show(panelSearch.getPanelCenter(), Data.IMAGES[number]);
+			
+			panelFormSearch.getFieldNumber().setText(new String());
+			panelFormSearch.getFieldName().setText(new String());
+			panelFormSearch.getFieldNumber().requestFocus();
 			
 			
 		}
