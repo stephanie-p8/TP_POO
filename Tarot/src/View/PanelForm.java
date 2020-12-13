@@ -119,6 +119,10 @@ public class PanelForm extends JPanel implements ActionListener{
 	public JFileChooser getFileChooser() {
 		return chooseImage;
 	}
+	
+	public JLabel getLabelImage() {
+		return labelImageName;
+	}
 
 	@Override
 	public void actionPerformed(ActionEvent event) {
