@@ -45,4 +45,12 @@ public class PanelSearch extends JPanel {
 		
 		
 	}
+	
+	public CardLayout getSearchLayout() {
+		return cl;
+	}
+	
+	public JPanel getPanelCenter() {
+		return panelCenter;
+	}
 }
