@@ -33,7 +33,6 @@ public class PanelFormSearch extends JPanel{
 		//labelSearch
 		constraint.gridx = 0;
 		constraint.gridy = 10;
-		//constraint.gridwidth = 1;
 		add(labelSearch,constraint);
 		
 		
@@ -64,7 +63,6 @@ public class PanelFormSearch extends JPanel{
 		//button
 		constraint.gridy ++;
 		constraint.gridx = 0;
-		//btnUpdate.addActionListener(this);
 		btnSearch.setActionCommand(Data.FORM_BUTTONS[2]);
 		add(btnSearch,constraint);
 	}
