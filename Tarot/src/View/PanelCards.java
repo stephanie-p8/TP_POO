@@ -50,8 +50,8 @@ public class PanelCards extends JPanel implements ActionListener {
 		}
 		
 		else {
-			//d = (Deck) ReadWrite.read(f);
-			ArrayList<Card>myCards = new ArrayList<Card>();
+			ReadWrite.read(f);
+			/*ArrayList<Card>myCards = new ArrayList<Card>();
 			d = new Deck(myCards);
 			Card c = null;
 			
@@ -60,7 +60,7 @@ public class PanelCards extends JPanel implements ActionListener {
 				myCards.add(c);
 				myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
 				myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
-			}
+			}*/
 		}
 		
 		form = new PanelForm(d);
