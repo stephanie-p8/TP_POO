@@ -16,19 +16,20 @@ public class Controller implements ActionListener{
 	PanelDisplayCard panelDisplay;
 	PanelForm form;
 	PanelUpdateCard panelUpdate;
-	PanelFormSearch panelSearch;
+	PanelSearch panelSearch = new PanelSearch(d);
+	PanelFormSearch panelFormSearch;
 	File file;
 	
-	public Controller(Deck d,PanelDisplayCard panelDisplay,PanelForm form,PanelUpdateCard panelUpdate,PanelFormSearch panelSearch) {
+	public Controller(Deck d,PanelDisplayCard panelDisplay,PanelForm form,PanelUpdateCard panelUpdate,PanelFormSearch panelFormSearch) {
 		this.d=d;
 		this.panelDisplay=panelDisplay;
 		this.form=form;
 		this.panelUpdate=panelUpdate;
-		this.panelSearch=panelSearch;
+		this.panelFormSearch=panelFormSearch;
 		
 		form.listenController(this);
 		panelUpdate.listenController(this);
-		panelSearch.listenController(this);
+		panelFormSearch.listenController(this);
 	
 	}
 	
@@ -43,7 +44,8 @@ public class Controller implements ActionListener{
 			
 			Card c = new Card(number,name);
 			c.addDescription(desc);
-			c.addImage(new ImageIcon(image.getSelectedFile().getName()));
+			if(image.getSelectedFile()!=null)
+				c.addImage(new ImageIcon(image.getSelectedFile().getName()));
 			
 			d.addCard(c);
 			ReadWrite.write(file, c);
@@ -72,11 +74,15 @@ public class Controller implements ActionListener{
 		}
 		
 		else if(evt.getActionCommand().equals(Data.FORM_BUTTONS[2])) {
-			int number = Integer.parseInt(form. getTextFieldNumber().getText());
-			String name = form.getTextFieldName().getText();
+			int number = Integer.parseInt(panelFormSearch.getFieldNumber().getText());
+			String name = panelFormSearch.getFieldName().getText();
 			
 			Card c = new Card(number,name);
 			d.searchCard(c);
+			
+			panelSearch.getSearchLayout().show(panelSearch.getPanelCenter(), Data.IMAGES[number]);
+			
+			
 		}
 	}
 
