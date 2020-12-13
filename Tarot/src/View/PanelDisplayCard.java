@@ -14,6 +14,7 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 	JLabel labelCard = new JLabel("Choisissez la carte à afficher");
 	JComboBox cards = new JComboBox();
 	JButton btnDisplay = new JButton(Data.BUTTON_DISPLAY);
+	JLabel labelSouth = new JLabel("");
 	
 	JPanel panelNorth = new JPanel();
 	JPanel panelCenter = new JPanel();
@@ -34,6 +35,7 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 		btnDisplay.addActionListener(this);
 		btnDisplay.setActionCommand("Afficher");
 		panelNorth.add(btnDisplay);
+		panelSouth.add(labelSouth);
 		
 		panelCenter.setLayout(layout);
 		
@@ -44,10 +46,12 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 		}
 		
 		layout.show(panelCenter, Data.IMAGES[0]);
+		labelSouth.setText(Data.MAJOR_MYSTERY_DESC[0]);
 		
 		
 		this.add(panelNorth,BorderLayout.NORTH);
 		this.add(panelCenter,BorderLayout.CENTER);
+		this.add(panelSouth,BorderLayout.SOUTH);
 		
 	}
 
@@ -58,6 +62,7 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 			for(int j=0;j<Data.MAJOR_MYSTERY.length;j++) {
 				if(cards.getSelectedIndex()==j) {
 					layout.show(panelCenter, Data.IMAGES[j]);
+					labelSouth.setText(Data.MAJOR_MYSTERY_DESC[j]);
 
 				}
 			}
