@@ -9,6 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+/**
+ * Manage the dispaly of the deck 
+ * @author Stephanie PERAFAN
+ *
+ */
 public class PanelDeck extends JPanel implements ActionListener {
 	
 	JPanel southPanel = new JPanel();
@@ -19,10 +24,13 @@ public class PanelDeck extends JPanel implements ActionListener {
 	JPanel centerPanel = new JPanel();
 	private int imagesIndex =0;
 	
+	/**
+	 * Constructor: set a layout and add components
+	 */
 	public PanelDeck() {
 		setLayout (new BorderLayout (20,20));
 		
-		
+		/*Add buttons*/
 		JButton buttons[] = new JButton [Data.BUTTONS_DECK.length];
 		for (int i=0; i<Data.BUTTONS_DECK.length;i++){
 			buttons[i] = new JButton (Data.BUTTONS_DECK[i]);
@@ -33,6 +41,7 @@ public class PanelDeck extends JPanel implements ActionListener {
 		
 		southPanel.add(labSouth);
 		
+		/*Add images*/
 		JLabel labels [] = new JLabel [Data.MYIMAGES.length];
 		centerPanel.setLayout(layout); 
 		for (int i=0; i<Data.MYIMAGES.length;i++){
@@ -49,6 +58,9 @@ public class PanelDeck extends JPanel implements ActionListener {
 		add(centerPanel,BorderLayout.CENTER);
 	}
 	
+	/**
+	 * Show each card of deck by clicking on the buttons
+	 */
 	public void actionPerformed(ActionEvent parEvt){
 
 		if (parEvt.getActionCommand().equals(Data.BUTTONS_DECK[0])) {
@@ -78,7 +90,7 @@ public class PanelDeck extends JPanel implements ActionListener {
 		else if (parEvt.getActionCommand().equals(Data.BUTTONS_DECK[3])){
 			layout.last(centerPanel);
 			imagesIndex = 21;
-			labSouth.setText(Data.MYIMAGES[imagesIndex]); //pour modifier l'etiquette
+			labSouth.setText(Data.MYIMAGES[imagesIndex]); 
 			
 			
 		}

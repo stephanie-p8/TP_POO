@@ -8,6 +8,11 @@ import Model.Deck;
 
 import java.awt.*;
 
+/**
+ * Form to update a card 
+ * @author Stephanie PERAFAN
+ *
+ */
 public class PanelUpdateCard  extends JPanel{
 	
 	JLabel labelCard = new JLabel("Choisissez la carte à modifier");
@@ -22,8 +27,10 @@ public class PanelUpdateCard  extends JPanel{
 	
 	Deck d;
 	
-	
-
+	/**
+	 * Constructor: set layout and add components
+	 * @param d deck
+	 */
 	public PanelUpdateCard(Deck d) {
 		
 		setLayout(new GridBagLayout());
@@ -82,14 +89,26 @@ public class PanelUpdateCard  extends JPanel{
 		
 	}
 	
+	/**
+	 * Get number text field
+	 * @return fieldNumber number text field
+	 */
 	public JTextField getFieldNumber() {
 		return fieldNumber;
 	}
 	
+	/**
+	 * Get name text field
+	 * @return fieldName name text field
+	 */
 	public JTextField getFieldName() {
 		return fieldName;
 	}
 	
+	/**
+	 * Give to controller the control of buttons
+	 * @param c controller
+	 */
 	public void listenController(Controller c) {
 		btnUpdate.addActionListener(c);
 	}

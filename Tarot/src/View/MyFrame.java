@@ -6,6 +6,11 @@ import Model.Data;
 
 import java.awt.*;
 
+/**
+ * Main window managing the display of the application and his menu
+ * @author Stephanie PERAFAN
+ *
+ */
 public class MyFrame extends JFrame {
 	
 	private JMenuBar menuBar=new JMenuBar();
@@ -22,6 +27,10 @@ public class MyFrame extends JFrame {
     JMenuItem itemDeck2= new JMenuItem(Data.DECK_ITEMS[1]);
     JMenuItem itemDeck3= new JMenuItem(Data.DECK_ITEMS[2]);
 	
+    /**
+     * Constructor: add a menu bar 
+     * @param parTitre frame title
+     */
 	public MyFrame(String parTitre){ 
 		   super (parTitre);
 			PanelCards contentPane=new PanelCards();

@@ -14,7 +14,11 @@ import java.awt.event.ActionListener;
 import java.io.File;
 import java.util.ArrayList;
 
-
+/**
+ * Main panel to manage the different panels of the menu
+ * @author Stephanie PERAFAN
+ *
+ */
 public class PanelCards extends JPanel implements ActionListener {
 	
 	PanelDeck deck;
@@ -30,6 +34,9 @@ public class PanelCards extends JPanel implements ActionListener {
 	JPanel panelHome = new JPanel();
 	JLabel labelWelcome = new JLabel("Bienvenue au mystic tarot!",SwingConstants.CENTER);
 	
+	/**
+	 * Constructor: instantiate and add different panels using a card layout  
+	 */
 	public PanelCards() {
 		setLayout(cl);
 		
@@ -51,16 +58,6 @@ public class PanelCards extends JPanel implements ActionListener {
 		
 		else {
 			ReadWrite.read(f);
-			/*ArrayList<Card>myCards = new ArrayList<Card>();
-			d = new Deck(myCards);
-			Card c = null;
-			
-			for(int i=0;i<Data.NB_MAJOR_MYSTERY;i++) {
-				c = new Card(i,Data.MAJOR_MYSTERY[i]);
-				myCards.add(c);
-				myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
-				myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
-			}*/
 		}
 		
 		form = new PanelForm(d);
@@ -82,7 +79,7 @@ public class PanelCards extends JPanel implements ActionListener {
 		this.add(ps,"ps");
 		
 		
-		Controller controller = new Controller(d,dc,form,uc,new PanelFormSearch(d));
+		Controller controller = new Controller(d,form,uc,new PanelFormSearch(d));
 		
 		labelWelcome.setFont(new Font("Serif",Font.BOLD,30));
 		labelWelcome.setForeground(Color.RED);
@@ -96,7 +93,9 @@ public class PanelCards extends JPanel implements ActionListener {
 	}
 	
 	
-	
+	/**
+	 * Controls the display of panels for each menu item
+	 */
 	public void actionPerformed(ActionEvent event) {
 		
 		if (event.getActionCommand().equals(Data.CARD_ITEMS[0])){

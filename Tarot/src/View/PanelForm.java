@@ -13,6 +13,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+/**
+ * Form to complete in order to add a new card
+ * @author Stephanie PERAFAN
+ *
+ */
 public class PanelForm extends JPanel implements ActionListener{
 	
 	JLabel labelNumber = new JLabel ("Numero carte");
@@ -35,6 +40,10 @@ public class PanelForm extends JPanel implements ActionListener{
 	
 	Deck d;
 	
+	/**
+	 * Constructor: set layout and add components
+	 * @param d deck
+	 */
 	public PanelForm(Deck d) {
 		
 		setLayout(new GridBagLayout());
@@ -104,26 +113,49 @@ public class PanelForm extends JPanel implements ActionListener{
 		
 	}
 	
+	/**
+	 * Get number text field
+	 * @return fieldNumber number text field
+	 */
 	public JTextField getTextFieldNumber() {
 		return fieldNumber;
 	}
 	
+	/**
+	 * Get name text field
+	 * @return fieldName name text field
+	 */
 	public JTextField getTextFieldName() {
 		return fieldName;
 	}
 	
+	/**
+	 * Get description text area
+	 * @return areaDesc description text area
+	 */
 	public JTextArea getTextAreaDesc() {
 		return areaDesc;
 	}
 	
+	/**
+	 * Get file chooser
+	 * @return chooseImage file chooser
+	 */
 	public JFileChooser getFileChooser() {
 		return chooseImage;
 	}
 	
+	/**
+	 * Get label for image name
+	 * @return labelImageName label for image name
+	 */
 	public JLabel getLabelImage() {
 		return labelImageName;
 	}
 
+	/**
+	 * Choose image in a file chooser by clicking in button
+	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		// TODO Auto-generated method stub
@@ -141,6 +173,10 @@ public class PanelForm extends JPanel implements ActionListener{
 		
 	}
 	
+	/**
+	 * Give to controller the control of buttons
+	 * @param c controller
+	 */
 	public void listenController(Controller c) {
 		btn.addActionListener(c);
 		buttonImage.addActionListener(c);

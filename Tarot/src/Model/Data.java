@@ -45,6 +45,8 @@ public class Data {
 	
 	/**
 	 * Read file with images names to order it.
+	 * @param file the file to read
+	 * @throws IOException exception
 	 */
 	public static void ReadFileImages(File file) throws IOException {
 		BufferedReader br = null;

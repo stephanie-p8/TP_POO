@@ -9,6 +9,11 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+/**
+ * Displays the requested card and its description
+ * @author Stephanie PERAFAN
+ *
+ */
 public class PanelDisplayCard extends JPanel implements ActionListener {
 	
 	JLabel labelCard = new JLabel("Choisissez la carte à afficher");
@@ -22,6 +27,9 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 	
 	CardLayout layout = new CardLayout();
 	
+	/**
+	 * Constructor: set layout and add components
+	 */
 	public PanelDisplayCard() {
 		
 		setLayout(new BorderLayout(20,20));
@@ -39,22 +47,27 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 		
 		panelCenter.setLayout(layout);
 		
+		/*Add buttons*/
 		JLabel labels [] = new JLabel [Data.MYIMAGES.length];
 		for (int i=0; i<Data.MYIMAGES.length;i++){
 			labels[i] = new JLabel(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
 			panelCenter.add(labels[i],Data.MYIMAGES[i]);
 		}
 		
+		/*Show first card at the display of the function*/
 		layout.show(panelCenter, Data.MYIMAGES[0]);
 		labelSouth.setText(Data.MAJOR_MYSTERY_DESC[0]);
 		
-		
+		/*Add panels to layout*/
 		this.add(panelNorth,BorderLayout.NORTH);
 		this.add(panelCenter,BorderLayout.CENTER);
 		this.add(panelSouth,BorderLayout.SOUTH);
 		
 	}
-
+	
+	/**
+	 * Change the image by clicking in the button
+	 */
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		// TODO Auto-generated method stub

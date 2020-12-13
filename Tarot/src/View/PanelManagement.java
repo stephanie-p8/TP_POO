@@ -8,15 +8,21 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-
-
+/**
+ * Application management
+ * @author oscar
+ *
+ */
 public class PanelManagement extends JPanel implements ActionListener{
 	
 	JLabel labelExp = new JLabel("Paramétrer l'application, avec les options suivantes:");
 	JCheckBox checkBoxColor = new JCheckBox("Changer la couleur de l'arrière plan");
-	JCheckBox checkBoxLanguage = new JCheckBox("Changer la langue de l'application");
+	JCheckBox checkBoxLanguage = new JCheckBox("Changer la police de l'application");
 	JButton button = new JButton(Data.BUTTON_MANAGEMENT);
 	
+	/**
+	 * Constructor: set layout and add components
+	 */
 	public PanelManagement() {
 		
 		setLayout(new GridBagLayout());
@@ -34,7 +40,7 @@ public class PanelManagement extends JPanel implements ActionListener{
 		constraint.gridx = 0;
 		add(checkBoxColor,constraint);
 		
-		//chackbox 2
+		//checkbox 2
 		constraint.gridy ++;
 		constraint.gridx = 0;
 		add(checkBoxLanguage,constraint);
@@ -49,6 +55,9 @@ public class PanelManagement extends JPanel implements ActionListener{
 		
 	}
 
+	/**
+	 * Add options to manage application by clicking in the button
+	 */
 	@Override
 	public void actionPerformed(ActionEvent evt) {
 		if(evt.getActionCommand().equals(Data.BUTTON_MANAGEMENT)) {
@@ -67,20 +76,33 @@ public class PanelManagement extends JPanel implements ActionListener{
 			}
 			
 			else if(checkBoxLanguage.isSelected()){
-				JComboBox languagesList = new JComboBox();
-				String languages[] = {"Français","English"};
+				GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+				JComboBox fontList = new JComboBox();
+				String font[] = ge.getAvailableFontFamilyNames();
 				
-				for(int i=0;i<languages.length;i++) {
-					languagesList.addItem(languages[i]);
+				for(int i=0;i<font.length;i++) {
+					fontList.addItem(font[i]);
 				}
 				
-				int choice = JOptionPane.showOptionDialog(null,new Object[] {"Choisissez la langue:",languagesList},"Supprimer carte",JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
+				int choice = JOptionPane.showOptionDialog(null,new Object[] {"Choisissez la police:",fontList},"Changez la police",JOptionPane.OK_CANCEL_OPTION,JOptionPane.QUESTION_MESSAGE,null,null,null);
 				
 				switch(choice){
 				case JOptionPane.CLOSED_OPTION:
 					break;
 				case JOptionPane.OK_OPTION:
-					//option to change language
+					for(int j=0;j<font.length;j++) {
+						if(fontList.getSelectedIndex()==j) {
+							UIDefaults defaults = UIManager.getDefaults();
+							Font myfont = new Font(font[j],Font.PLAIN,14);
+							java.util.Enumeration<?> keys = defaults.keys();
+							while (keys.hasMoreElements()) {
+								Object key = keys.nextElement();
+								Object value = UIManager.get(key);
+								if (value instanceof javax.swing.plaf.FontUIResource)
+									defaults.put(key, myfont);
+							}
+						}
+					}	
 				case JOptionPane.CANCEL_OPTION:
 					break;	
 				}

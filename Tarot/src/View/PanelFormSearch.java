@@ -8,6 +8,11 @@ import Model.Deck;
 
 import java.awt.*;
 
+/**
+ * Form to complete in order to search a card 
+ * @author oscar
+ *
+ */
 public class PanelFormSearch extends JPanel{
 	
 	JLabel labelSearch = new JLabel("Veuillez saisir la carte à rechercher:");
@@ -20,6 +25,10 @@ public class PanelFormSearch extends JPanel{
 	
 	Deck d;
 	
+	/**
+	 * Constructor: set layout and add components
+	 * @param d deck
+	 */
 	public PanelFormSearch(Deck d) {
 		
 		setLayout(new GridBagLayout());
@@ -67,14 +76,26 @@ public class PanelFormSearch extends JPanel{
 		add(btnSearch,constraint);
 	}
 	
+	/**
+	 * Get number text field
+	 * @return fieldNumber number text field
+	 */
 	public JTextField getFieldNumber() {
 		return fieldNumber;
 	}
 	
+	/**
+	 * Get name text field
+	 * @return fieldName name text field
+	 */
 	public JTextField getFieldName() {
 		return fieldName;
 	}
 	
+	/**
+	 * Give to controller the control of buttons
+	 * @param c controller
+	 */
 	public void listenController(Controller c) {
 		btnSearch.addActionListener(c);
 	}
