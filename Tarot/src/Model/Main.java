@@ -23,7 +23,7 @@ public class Main {
 				c = new Card(i,Data.MAJOR_MYSTERY[i]);
 				myCards.add(c);
 				myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
-				myCards.get(i).addImage(new ImageIcon("images2" + File.separator + Data.IMAGES[i]));
+				//smyCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
 				
 				System.out.println("Création de: " + c + "\n");
 			}
@@ -54,6 +54,18 @@ public class Main {
             ioe.printStackTrace();
         }
 		
+		try {
+			Data.ReadFileImages(new File("C:\\Users\\oscar\\git\\repository\\Tarot\\myImages"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+		
+		/*File f = new File("C:\\Users\\oscar\\git\\repository\\Tarot\\myImages");
+		System.out.println(f.exists());*/
+		
 		/*Gson gson = new Gson();
 		
 		ArrayList<Card>myCards = new ArrayList<Card>();
@@ -79,20 +91,6 @@ public class Main {
             e.printStackTrace();
         }*/
 		
-		/*
-		System.out.println(myDeck);
-		
-		myDeck.removeCard(3);
-		
-		//System.out.println(myDeck.getDeckOfCards());
-		
-		//search a card
-		System.out.println(myDeck.searchCard(myCards.get(5)));
-		
-		//update a card
-		System.out.println(myCards.get(9));
-		myCards.get(9).updateCard(3, "La Nature");
-		System.out.println(myCards.get(9));*/
 		
 			
 		new MyFrame("Mystic Tarot");

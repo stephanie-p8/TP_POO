@@ -89,7 +89,7 @@ public class Controller implements ActionListener{
 			Card c = new Card(number,name);
 			d.searchCard(c);
 			
-			panelSearch.getSearchLayout().show(panelSearch.getPanelCenter(), Data.IMAGES[number]);
+			panelSearch.getSearchLayout().show(panelSearch.getPanelCenter(), Data.MYIMAGES[number]);
 			
 			panelFormSearch.getFieldNumber().setText(new String());
 			panelFormSearch.getFieldName().setText(new String());

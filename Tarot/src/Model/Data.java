@@ -1,6 +1,6 @@
 package Model;
 
-import java.io.File;
+import java.io.*;
 
 public class Data {
 
@@ -22,8 +22,9 @@ public class Data {
 			"Réussite totale, apothéose, finalité."};
 	
 	/*Images*/
-	public static final File DIRECTORY = new File("images2");
-	public static final String IMAGES [] = DIRECTORY.list();
+	//public static final File DIRECTORY = new File("images");
+	//public static final String IMAGES [] = DIRECTORY.list();
+	public static final String MYIMAGES[] = new String[NB_MAJOR_MYSTERY];
 	
 	/*Menu*/
 	public static final String MENU[] = {"Cartes","Paquet","Gestion application","Quitter"};
@@ -35,4 +36,34 @@ public class Data {
 	public static final String BUTTON_DISPLAY  = "Afficher";
 	public static final String FORM_BUTTONS[]= {"Ajouter","Modifier","Rechercher"};
 	public static final String BUTTON_MANAGEMENT = "Appliquer";
+	
+	
+	
+	public static void ReadFileImages(File file) throws IOException {
+		BufferedReader br = null;
+		try {
+			if(file.exists()) {
+				br = new BufferedReader(new FileReader(file));
+				String line = "";
+				int i=0;
+				while((line = br.readLine())!=null) {
+					MYIMAGES[i]=line;
+					i++;
+				}
+			}
+		}
+		
+		catch(IOException ioE){
+			   ioE.printStackTrace();
+		}
+		finally {
+			if(br!= null) {
+				br.close();
+			}
+		}
+	
+	}
+	
+
+	
 }

@@ -29,15 +29,15 @@ public class PanelSearch extends JPanel {
 		panelCenter.setLayout(cl);
 		
 		
-		JLabel labels [] = new JLabel [Data.IMAGES.length];
+		JLabel labels [] = new JLabel [Data.MYIMAGES.length];
 		panelCenter.setLayout(cl); 
-		for (int i=0; i<Data.IMAGES.length;i++){
-			labels[i] = new JLabel(new ImageIcon("images" + File.separator + Data.IMAGES[i]));
-			panelCenter.add(labels[i],Data.IMAGES[i]);
+		for (int i=0; i<Data.MYIMAGES.length;i++){
+			labels[i] = new JLabel(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
+			panelCenter.add(labels[i],Data.MYIMAGES[i]);
 		}
 		
-		cl.show(panelCenter,Data.IMAGES[0]);
-		labelSouth.setText(Data.IMAGES[0]);
+		cl.show(panelCenter,Data.MYIMAGES[0]);
+		labelSouth.setText(Data.MAJOR_MYSTERY_DESC[0]);
 		
 		add(panelEast,BorderLayout.EAST);
 		add(panelCenter,BorderLayout.CENTER);

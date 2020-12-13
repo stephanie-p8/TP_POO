@@ -39,13 +39,13 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 		
 		panelCenter.setLayout(layout);
 		
-		JLabel labels [] = new JLabel [Data.IMAGES.length];
-		for (int i=0; i<Data.IMAGES.length;i++){
-			labels[i] = new JLabel(new ImageIcon("images" + File.separator + Data.IMAGES[i]));
-			panelCenter.add(labels[i],Data.IMAGES[i]);
+		JLabel labels [] = new JLabel [Data.MYIMAGES.length];
+		for (int i=0; i<Data.MYIMAGES.length;i++){
+			labels[i] = new JLabel(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
+			panelCenter.add(labels[i],Data.MYIMAGES[i]);
 		}
 		
-		layout.show(panelCenter, Data.IMAGES[0]);
+		layout.show(panelCenter, Data.MYIMAGES[0]);
 		labelSouth.setText(Data.MAJOR_MYSTERY_DESC[0]);
 		
 		
@@ -61,7 +61,7 @@ public class PanelDisplayCard extends JPanel implements ActionListener {
 		if(event.getActionCommand().equals(Data.BUTTON_DISPLAY)) {
 			for(int j=0;j<Data.MAJOR_MYSTERY.length;j++) {
 				if(cards.getSelectedIndex()==j) {
-					layout.show(panelCenter, Data.IMAGES[j]);
+					layout.show(panelCenter, Data.MYIMAGES[j]);
 					labelSouth.setText(Data.MAJOR_MYSTERY_DESC[j]);
 
 				}

@@ -30,7 +30,7 @@ public class TestCard {
 	
 	@Test
 	public void testAddImage() {
-		c.addImage(new ImageIcon("images" + File.separator + Data.IMAGES[1]));
+		c.addImage(new ImageIcon("images" + File.separator + Data.MYIMAGES[1]));
 		assertTrue(c.getCardImage()!=null);
 	}
 	

@@ -36,21 +36,31 @@ public class PanelCards extends JPanel implements ActionListener {
 		File f = new File("card.serial");
 		if(f.length()==0) {
 			ArrayList<Card>myCards = new ArrayList<Card>();
-			Deck myDeck = new Deck(myCards);
+			d = new Deck(myCards);
 			Card c = null;
 			
 			for(int i=0;i<Data.NB_MAJOR_MYSTERY;i++) {
 				c = new Card(i,Data.MAJOR_MYSTERY[i]);
 				myCards.add(c);
 				myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
-				myCards.get(i).addImage(new ImageIcon("images2" + File.separator + Data.IMAGES[i]));
+				myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
 			}
 			
-			ReadWrite.write(f, myDeck);
+			ReadWrite.write(f, d);
 		}
 		
 		else {
-			d = (Deck) ReadWrite.read(f);
+			//d = (Deck) ReadWrite.read(f);
+			ArrayList<Card>myCards = new ArrayList<Card>();
+			d = new Deck(myCards);
+			Card c = null;
+			
+			for(int i=0;i<Data.NB_MAJOR_MYSTERY;i++) {
+				c = new Card(i,Data.MAJOR_MYSTERY[i]);
+				myCards.add(c);
+				myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
+				myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
+			}
 		}
 		
 		form = new PanelForm(d);
