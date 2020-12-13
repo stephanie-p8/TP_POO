@@ -10,19 +10,29 @@ import javax.swing.filechooser.FileNameExtensionFilter;
 import View.*;
 import Model.*;
 
+/**
+ * Inspect actions in buttons of view.
+ * @author Stephanie Perafan
+ *
+ */
 public class Controller implements ActionListener{
-
+	
 	Deck d;
-	PanelDisplayCard panelDisplay;
 	PanelForm form;
 	PanelUpdateCard panelUpdate;
 	PanelSearch panelSearch = new PanelSearch(d);
 	PanelFormSearch panelFormSearch;
 	File file = new File("card.serial");
 	
-	public Controller(Deck d,PanelDisplayCard panelDisplay,PanelForm form,PanelUpdateCard panelUpdate,PanelFormSearch panelFormSearch) {
+	/**
+	 * Constructor
+	 * @param d deck
+	 * @param form panelForm
+	 * @param panelUpdate panelUpdateCard
+	 * @param panelFormSearch panelFormSearch
+	 */
+	public Controller(Deck d,PanelForm form,PanelUpdateCard panelUpdate,PanelFormSearch panelFormSearch) {
 		this.d=d;
-		this.panelDisplay=panelDisplay;
 		this.form=form;
 		this.panelUpdate=panelUpdate;
 		this.panelFormSearch=panelFormSearch;
@@ -33,9 +43,15 @@ public class Controller implements ActionListener{
 	
 	}
 	
+	/**
+	 * Controller listen actions from buttons
+	 * @param evt event
+	 */
 	@Override
 	public void actionPerformed(ActionEvent evt) {
 		// TODO Auto-generated method stub
+		
+		/*Button to add a card*/
 		if(evt.getActionCommand().equals(Data.FORM_BUTTONS[0])) {
 			int number = Integer.parseInt(form. getTextFieldNumber().getText());
 			String name = form.getTextFieldName().getText();
@@ -56,6 +72,7 @@ public class Controller implements ActionListener{
 			form.getTextFieldNumber().requestFocus();
 		}
 		
+		/*Button to choose an image*/
 		else if(evt.getActionCommand().equals("Choisissez votre image")) {
 			JFileChooser chooseImage = form.getFileChooser();
 			FileNameExtensionFilter filter = new FileNameExtensionFilter("JPG & PNG Images", "jpg", "png");
@@ -69,6 +86,7 @@ public class Controller implements ActionListener{
 	        
 		}
 		
+		/*Button to update a card*/
 		else if(evt.getActionCommand().equals(Data.FORM_BUTTONS[1])) {
 			int number = Integer.parseInt(form. getTextFieldNumber().getText());
 			String name = form.getTextFieldName().getText();
@@ -82,6 +100,7 @@ public class Controller implements ActionListener{
 			
 		}
 		
+		/*Button to search a card*/
 		else if(evt.getActionCommand().equals(Data.FORM_BUTTONS[2])) {
 			int number = Integer.parseInt(panelFormSearch.getFieldNumber().getText());
 			String name = panelFormSearch.getFieldName().getText();

@@ -2,6 +2,11 @@ package Model;
 
 import java.io.*;
 
+/**
+ * Instance of constants used in other classes
+ * @author Stephanie PERAFAN
+ *
+ */
 public class Data {
 
 	/*The major mysteries*/
@@ -38,7 +43,9 @@ public class Data {
 	public static final String BUTTON_MANAGEMENT = "Appliquer";
 	
 	
-	
+	/**
+	 * Read file with images names to order it.
+	 */
 	public static void ReadFileImages(File file) throws IOException {
 		BufferedReader br = null;
 		try {

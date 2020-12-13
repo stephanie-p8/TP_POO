@@ -2,8 +2,18 @@ package Model;
 
 import java.io.*;
 
+/**
+ * Read and write a file
+ * @author Stephanie PERAFAN
+ *
+ */
 public class ReadWrite {
 	
+	/**
+	 * Read file
+	 * @param file the file to read
+	 * @return readObject lines readed
+	 */
 	public static Object read(File file) {
 		ObjectInputStream flow;
 		Object readObject = null;
@@ -30,6 +40,11 @@ public class ReadWrite {
 		
 	}
 	
+	/**
+	 * Write in the file
+	 * @param file file where we write
+	 * @param object object to write in the file
+	 */
 	public static void write(File file, Object object) {
 		ObjectOutputStream flow = null;
 		

@@ -12,6 +12,11 @@ import com.google.gson.*;
 
 import View.MyFrame;
 
+/**
+ * Execute application
+ * @author Stephanie PERAFAN
+ *
+ */
 public class Main {
 	public static void main(String[]args) {
 		try {
