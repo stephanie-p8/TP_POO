@@ -23,12 +23,12 @@ public class Main {
 				c = new Card(i,Data.MAJOR_MYSTERY[i]);
 				myCards.add(c);
 				myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
-				myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.IMAGES[i]));
+				myCards.get(i).addImage(new ImageIcon("images2" + File.separator + Data.IMAGES[i]));
 				
 				System.out.println("Création de: " + c + "\n");
 			}
 			
-			//opening an output stream to the file "personne.serial".
+			//opening an output stream to the file "card.serial".
 	        FileOutputStream fos = new FileOutputStream("card.serial");
 	
 	        // creation of an "object flow" with the file flow
@@ -64,13 +64,17 @@ public class Main {
 			c = new Card(i,Data.MAJOR_MYSTERY[i]);
 			myCards.add(c);
 			myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
-			myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.IMAGES[i]));
+			//myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.IMAGES[i]));
 			
 		}
 
         
-        try (FileWriter writer = new FileWriter("card.json")) {
-            gson.toJson(c, writer);
+        try{
+        	FileWriter writer = new FileWriter("card.json");
+            String answer = gson.toJson(c);
+            writer.write(answer);
+            writer.flush();
+            writer.close();
         } catch (IOException e) {
             e.printStackTrace();
         }*/
@@ -91,6 +95,6 @@ public class Main {
 		System.out.println(myCards.get(9));*/
 		
 			
-		new MyFrame("Tarot");
+		new MyFrame("Mystic Tarot");
 	}
 }
