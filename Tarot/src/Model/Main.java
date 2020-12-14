@@ -19,45 +19,6 @@ import View.MyFrame;
  */
 public class Main {
 	public static void main(String[]args) {
-		try {
-			ArrayList<Card>myCards = new ArrayList<Card>();
-			Deck myDeck = new Deck(myCards);
-			Card c = null;
-			
-			for(int i=0;i<Data.NB_MAJOR_MYSTERY;i++) {
-				c = new Card(i,Data.MAJOR_MYSTERY[i]);
-				myCards.add(c);
-				myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
-				//smyCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
-				
-				System.out.println("Création de: " + c + "\n");
-			}
-			
-			//opening an output stream to the file "card.serial".
-	        FileOutputStream fos = new FileOutputStream("card.serial");
-	
-	        // creation of an "object flow" with the file flow
-	        ObjectOutputStream oos= new ObjectOutputStream(fos);
-	
-	        try {
-	            // serialization: writing the object to the output stream
-	            oos.writeObject(c); 
-	            // the buffer is emptied
-	            oos.flush();
-	            System.out.println(c + " a ete serialise");
-	        } 
-	            finally {
-	            //flow closure
-	                try {
-	                    oos.close();
-	                } finally {
-	                    fos.close();
-	                }
-	            }  
-		}
-		catch(IOException ioe) {
-            ioe.printStackTrace();
-        }
 		
 		try {
 			Data.ReadFileImages(new File("C:\\Users\\oscar\\git\\repository\\Tarot\\myImages"));
@@ -65,6 +26,20 @@ public class Main {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		ArrayList<Card>myCards = new ArrayList<Card>();
+		Deck myDeck = new Deck(myCards);
+		Card c = null;
+		
+		for(int i=0;i<Data.NB_MAJOR_MYSTERY;i++) {
+			c = new Card(i,Data.MAJOR_MYSTERY[i]);
+			myCards.add(c);
+			myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
+			//myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
+			
+		}
+		
+		myDeck.readFutur();
 
 		
 		
