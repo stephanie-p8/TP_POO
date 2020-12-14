@@ -11,7 +11,7 @@ import Model.ReadWrite;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 
 /**
@@ -42,22 +42,70 @@ public class PanelCards extends JPanel implements ActionListener {
 		
 		File f = new File("card.serial");
 		if(f.length()==0) {
-			ArrayList<Card>myCards = new ArrayList<Card>();
-			d = new Deck(myCards);
-			Card c = null;
-			
-			for(int i=0;i<Data.NB_MAJOR_MYSTERY;i++) {
-				c = new Card(i,Data.MAJOR_MYSTERY[i]);
-				myCards.add(c);
-				myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
-				myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
+			try {
+				ArrayList<Card>myCards = new ArrayList<Card>();
+				Deck myDeck = new Deck(myCards);
+				Card c = null;
+				
+				for(int i=0;i<Data.NB_MAJOR_MYSTERY;i++) {
+					c = new Card(i,Data.MAJOR_MYSTERY[i]);
+					myCards.add(c);
+					myCards.get(i).addDescription(Data.MAJOR_MYSTERY_DESC[i]);
+					myCards.get(i).addImage(new ImageIcon("images" + File.separator + Data.MYIMAGES[i]));
+					
+					System.out.println("Création de: " + c + "\n");
+				}
+				
+				//opening an output stream to the file "card.serial".
+		        FileOutputStream fos = new FileOutputStream(f);
+		
+		        // creation of an "object flow" with the file flow
+		        ObjectOutputStream oos= new ObjectOutputStream(fos);
+		
+		        try {
+		            // serialization: writing the object to the output stream
+		            oos.writeObject(c); 
+		            // the buffer is emptied
+		            oos.flush();
+		        } 
+		            finally {
+		            //flow closure
+		                try {
+		                    oos.close();
+		                } finally {
+		                    fos.close();
+		                }
+		            }  
 			}
+			catch(IOException ioe) {
+	            ioe.printStackTrace();
+	        }
 			
-			ReadWrite.write(f, d);
 		}
 		
 		else {
-			ReadWrite.read(f);
+			 Card c = null;
+		        try {
+		            
+		            FileInputStream fis = new FileInputStream("card.serial");
+		           
+		            ObjectInputStream ois= new ObjectInputStream(fis);
+		            try {    
+		                
+		                c = (Card) ois.readObject(); 
+		            } finally {
+		                
+		                try {
+		                    ois.close();
+		                } finally {
+		                    fis.close();
+		                }
+		            }
+		        } catch(IOException ioe) {
+		            ioe.printStackTrace();
+		        } catch(ClassNotFoundException cnfe) {
+		            cnfe.printStackTrace();
+		        }
 		}
 		
 		form = new PanelForm(d);
