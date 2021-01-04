@@ -1,10 +1,15 @@
 package Model;
 
-import java.io.File;
+import java.io.*;
 
+/**
+ * Instance of constants used in other classes
+ * @author Stephanie PERAFAN
+ *
+ */
 public class Data {
 
-	//The major mysteries
+	/*The major mysteries*/
 	public static final String [] MAJOR_MYSTERY= {"Le Mat","Le Bateleur","La Papesse","L’Impératrice","L’Empereur"
 			,"Le Pape","L’Amoureux","Le Chariot","La Justice","L’Hermite","La Roue de Fortune","La Force",
 			"Le Pendu","La carte sans nom","La Tempérance","Le Diable","La Maison Dieu","L’étoile","La Lune",
@@ -21,6 +26,53 @@ public class Data {
 			"Gestation, obscurité, imagination, famille, intériorité","Chaleur, harmonie, émotion, protection, argent.","Annonce, nouvelle, réussite, libération, rapidité.",
 			"Réussite totale, apothéose, finalité."};
 	
-	public static final File DIRECTORY = new File("images");
-	public static final String IMAGES [] = DIRECTORY.list();
+	/*Images*/
+	//public static final File DIRECTORY = new File("images");
+	//public static final String IMAGES [] = DIRECTORY.list();
+	public static final String MYIMAGES[] = new String[NB_MAJOR_MYSTERY];
+	
+	/*Menu*/
+	public static final String MENU[] = {"Cartes","Paquet","Gestion application","Quitter"};
+	public static final String CARD_ITEMS[]= {"Afficher carte","Créer nouvelle carte","Modifier carte"};
+	public static final String DECK_ITEMS[]= {"Afficher paquet","Rechercher carte","Supprimer carte"};
+	
+	/*Buttons*/
+	public static final String BUTTONS_DECK[]={"<<" ,"<",">",">>"};
+	public static final String BUTTON_DISPLAY  = "Afficher";
+	public static final String FORM_BUTTONS[]= {"Ajouter","Modifier","Rechercher"};
+	public static final String BUTTON_MANAGEMENT = "Appliquer";
+	
+	
+	/**
+	 * Read file with images names to order it.
+	 * @param file the file to read
+	 * @throws IOException exception
+	 */
+	public static void ReadFileImages(File file) throws IOException {
+		BufferedReader br = null;
+		try {
+			if(file.exists()) {
+				br = new BufferedReader(new FileReader(file));
+				String line = "";
+				int i=0;
+				while((line = br.readLine())!=null) {
+					MYIMAGES[i]=line;
+					i++;
+				}
+			}
+		}
+		
+		catch(IOException ioE){
+			   ioE.printStackTrace();
+		}
+		finally {
+			if(br!= null) {
+				br.close();
+			}
+		}
+	
+	}
+	
+
+	
 }
